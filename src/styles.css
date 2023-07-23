@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.red{
+  color: #e35e6b;
+}
+
+.v-middle{
+  vertical-align: middle;
+}
+
+
+
+/****** CSS login e register *****/
+.login-wrapper {
+  height: 100%;
+}
+
+.login-wrapper {
+  margin: 0 auto;
+  min-width: 640px;
+  max-width: 640px;
+}
+
+.login-wrapper .example-full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+}
+
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+
+mat-card-title {
+  font-size: 2rem !important;
+}
+
+.login-wrapper .mat-card {
+  padding: 40px 70px;
+}
+
+.login-wrapper .mat-raised-button {
+  line-height: 45px;
+  font-size: 1.1rem;
+}

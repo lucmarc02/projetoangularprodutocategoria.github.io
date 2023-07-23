@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-title>
+    {{produto.id !== 0 ? 'Editar Produto' : 'Nova Produto'}}
+  </mat-card-title>
+
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>
+        {{produto.id === 0 ? "Selecione uma Categoria" : produto.categoria.nome}}
+      </mat-label>
+      <mat-select [(ngModel)]="produto.categoria" name="categoria">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+          {{categoria.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Nome do Produto</mat-label>
+      <input matInput [(ngModel)]="produto.nome" name="nome" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Preço do Produto</mat-label>
+      <input matInput [(ngModel)]="produto.preco" name="preco" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Estoque</mat-label>
+      <input matInput [(ngModel)]="produto.quantidadeEstoque" name="quantidadeEstoque" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data de Validade</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="produto.dataValidade" name="dataValidade">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="produto.ativo" color="primary" name="ativo" labelPosition="before">
+      Produto Ativo?
+    </mat-checkbox>
+
+  </form>
+
+  <div>
+    <button
+       mat-raised-button
+       color="primary"
+      (click)="saveProduto()"
+       >
+      {{produto.id !== 0 ? 'Editar' : 'Salvar'}}
+    </button>
+
+    <button
+    mat-raised-button
+    color="warn" (click)="cancel()"
+    style="margin-left: 5px;">
+      Cancelar
+    </button>
+  </div>
+</mat-card>

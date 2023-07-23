@@ -1,0 +1,45 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav
+       class="sidenav"
+       mode="side"
+       opened
+       fixedInViewport="true"
+       fixedTopGap="64"
+       >
+
+   <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/" *ngIf="user">
+        <i class="material-icons v-middle">home</i>
+        <span>Início</span>
+      </a>
+      <a mat-list-item routerLink="/categoria" *ngIf="user">
+        <i class="material-icons v-middle">category</i>
+        <span>Categoria</span>
+      </a>
+      <a mat-list-item routerLink="/produto" *ngIf="user && user.admin">
+        <i class="material-icons v-middle">storefront</i>
+        <span>Produto</span>
+      </a>
+
+      <a mat-list-item routerLink="/login" *ngIf="!user">
+        <i class="material-icons v-middle">account_circle</i>
+        <span>Login</span>
+      </a>
+
+      <a mat-list-item routerLink="/register" *ngIf="!user">
+        <i class="material-icons v-middle">person_add_alt</i>
+        <span>Register</span>
+      </a>
+
+      <a mat-list-item (click)="logout()" *ngIf="user">
+        <i class="material-icons v-middle">logout</i>
+        <span>Logout</span>
+      </a>
+
+   </mat-nav-list>
+  </mat-sidenav>
+<mat-sidenav-content class="content">
+  <router-outlet></router-outlet>
+</mat-sidenav-content>
+
+</mat-sidenav-container>

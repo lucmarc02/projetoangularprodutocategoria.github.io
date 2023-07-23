@@ -1,0 +1,57 @@
+<div class="login-wrapper">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form >
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Digite o seu nome completo</mat-label>
+          <input matInput [(ngModel)]="usuario.nome" name="nome" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Digite o seu login</mat-label>
+          <input matInput [(ngModel)]="usuario.login" name="login" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Digite a sua senha</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            [(ngModel)]="usuario.senha"
+            name="senha"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-checkbox
+          [(ngModel)]="usuario.admin"
+          color="primary"
+          name="ativo"
+          labelPosition="before"
+        >
+          É administrador?
+        </mat-checkbox>
+      </mat-card-content>
+      <button
+        mat-raised-button
+        color="primary"
+        class="btn-block"
+        (click)="register()"
+      >
+        Register
+      </button>
+    </form>
+  </mat-card>
+</div>
